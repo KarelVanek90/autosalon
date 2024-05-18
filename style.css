@@ -1,0 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+h1 {
+  margin-left: 25px;
+}
+h4 {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.container {
+  margin: 15px;
+  font-size: 20px;
+}
+
+.container > div {
+  margin: 10px;
+}
+p {
+  margin: 5px 0px;
+}
+
+input[type="button"] {
+  padding: 5px 12px;
+  margin: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgb(70, 80, 47);
+  color: aliceblue;
+}
+input[type="button"]:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 10px 1px green;
+}
