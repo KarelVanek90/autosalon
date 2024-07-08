@@ -9,60 +9,73 @@
   <body>
     <div class="container">
       <h1>Autosalon</h1>
-      <div class="">
+      <div class="select">
         <label for="cars"> Vozy z nasi nabidky:</label>
         <select name="cars" id="cars">
-          <option value="1500000">Mercedes 1500000 Kč</option>
-          <option value="1200000">Volvo 1200000 Kč</option>
-          <option value="1350000">Audi 1350000 Kč</option>
-          <option value="1400000">BMW 1400000 Kč</option>
+          <option value="1500000">Mercedes: 1500000 Kč</option>
+          <option value="1200000">Volvo: 1200000 Kč</option>
+          <option value="1350000">Audi: 1350000 Kč</option>
+          <option value="1400000">BMW: 1400000 Kč</option>
         </select>
       </div>
       <div>
         <h4>Barva vozu</h4>
-        <input type="radio" name="color" id="zaklad" value="1" />
-        <label for="zaklad">Základní barva</label>
-        <input type="radio" name="color" id="paleny" value="1.05" />
-        <label for="paleny">Pálený lak + 5%</label>
-        <input type="radio" name="color" id="metaliza" value="1.07" />
-        <label for="metaliza">Metalíza + 7%</label>
+        <div class="color">
+          <label for="zaklad">
+            <input type="radio" name="color" id="zaklad" value="1" checked />
+            Základní barva</label
+          >
+          <label for="paleny">
+            <input type="radio" name="color" id="paleny" value="1.05" />
+            Pálený lak + 5% z ceny vozu</label
+          >
+          <label for="metaliza">
+            <input type="radio" name="color" id="metaliza" value="1.07" />
+            Metalíza + 7% z ceny vozu</label
+          >
+        </div>
       </div>
-      <div>
+      <div class="equipment">
         <h4>Vybaveni</h4>
-        <div>
+        <label for="kamera">
           <input type="checkbox" name="kamera" id="checkbox" value="10000" />
-          <label for="kamera">Parkovací kamera + 10 000 Kc</label>
-        </div>
-        <div>
+          Parkovací kamera + 10 000 Kč</label
+        >
+        <label for="lita">
           <input type="checkbox" name="lita" id="checkbox" value="20000" />
-          <label for="lita">Litá kola + 20 000 Kc</label>
-        </div>
-        <div>
+          Litá kola + 20 000 Kč</label
+        >
+        <label for="kozene">
           <input type="checkbox" name="kozene" id="checkbox" value="50000" />
-          <label for="kozene">Kožené sedačky + 50 000 Kc</label>
-        </div>
-        <div>
+          Kožené sedačky + 50 000 Kč</label
+        >
+        <label for="tuning">
           <input type="checkbox" name="tuning" id="chbxpro" value="1.20" />
-          <label for="tuning">Tuningová úprava + 20%</label>
-        </div>
+          Tuningová úprava + 20%</label
+        >
       </div>
-    </div>
-    <div class="container">
-      <div>
-        <p>Cena vozu: <span class="castka"></span></p>
-        <label for="price">Kolik jste ochoten zaplatit?</label>
-        <input type="text" name="price" id="price" />
+   
+    
+      <div class="info">
+        <label for="price"
+          >Kolik jste ochoten zaplatit?
+          <input type="text" name="price" id="price"
+        /></label>
         <input type="button" value="Vypocet" />
-        <p>Vešel jste se s částkou? <span class="vesel"></span></p>
-
-        <div>
-          <label for="mail">Zadéjte svůj email: </label>
-          <input type="email" name="mail" id="mail" />
-          <input type="button" value="Odeslat" />
-          <p class="odmail"></p>
-        </div>
+        <p>Cena vozu: <span class="castka"></span></p>
+        <p>Vešel jste se s částkou?: <span class="vesel"></span></p>
       </div>
-    </div>
+
+        <div class="mail">
+
+          <label for="mail"
+            >Zadéjte svůj email pro Vaši objednávku:  
+            <input type="email" name="mail" id="mail"
+          /></label>  
+          <input type="button" value="Odeslat" disabled/>
+        
+      </div>
+    
     <script src="script.js"></script>
   </body>
 </html>
