@@ -1,15 +1,15 @@
 let cars = document.querySelector('select[name="cars"]');
 let radio = document.querySelectorAll('input[type="radio"]');
 let chBx = document.querySelectorAll('input[id="checkbox"]');
-let vypocet = document.querySelector('input[value="Vypocet"]');
+let calculation = document.querySelector('input[value="Vypocet"]');
 let chBxPro = document.querySelector('input[name="tuning"]');
-let castka = document.querySelector(".castka");
-let platba = document.querySelector('input[name="price"]');
-let oznameni = document.querySelector(".vesel");
+let amount = document.querySelector(".castka");
+let payment = document.querySelector('input[name="price"]');
+let notification = document.querySelector(".vesel");
 let send = document.querySelector('input[value="Odeslat"]');
 let mail = document.querySelector('input[type="email"]');
 
-vypocet.addEventListener("click", function () {
+calculation.addEventListener("click", function () {
   let price = parseInt(cars.value);
   let tuning = price;
   if (chBxPro.checked) {
@@ -28,21 +28,31 @@ vypocet.addEventListener("click", function () {
       price = price + parseInt(item.value);
     }
   }
-  castka.textContent = `${price} Kč`;
-  if (parseInt(platba.value) > price) {
-    oznameni.style.color = "green";
-    oznameni.textContent = "Vešel jste se";
+  amount.textContent = `${price} Kč`;
+  if (parseInt(payment.value) > price) {
+    notification.style.color = "green";
+    notification.textContent = "Vešel jste se";
+  } else if (parseInt(payment.value) < price) {
+    notification.style.color = "brown";
+    notification.textContent = "Vaše finance jsou příliš nízké!";
   } else {
-    oznameni.style.color = "red";
-    oznameni.textContent = "Nevešel jste se";
+    notification.style.color = "red";
+    notification.textContent = "Nezadali jse žádnou částku!";
   }
-});
-send.addEventListener("click", function () {
-  const regex = /@/;
-  const validate = regex.test(mail.value);
-  if (validate) {
-    alert("pozadavky byly odeslany");
-  } else {
-    alert("Zadali jsem spatny email");
-  }
+  send.disabled = false;
+  send.addEventListener("click", function () {
+    if (parseInt(payment.value) > price) {
+      const regex = /@/;
+      const validate = regex.test(mail.value);
+      if (validate) {
+        alert("pozadavky byly odeslany");
+      } else {
+        alert("Zadali jsem spatny email");
+      }
+    } else if (parseInt(payment.value) < price) {
+      alert("Vaše částka nevyhovuje");
+    } else {
+      alert("Nebyla zadáná žádna částka");
+    }
+  });
 });
